@@ -2,8 +2,10 @@ import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
 
 export async function getStaticProps({ params }) {
-    const postData = getPostData(params.id)
+    // Add the "await" keyword like this:
+    const postData = await getPostData(params.id)
     console.log('getStaticProps');
+    console.log(postData);
     return {
         props: {
             postData
@@ -28,6 +30,7 @@ export default function Post({ postData }) {
             {postData.id}
             <br />
             {postData.date}
+            <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}></div>
         </Layout>
     )
 }
