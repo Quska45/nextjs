@@ -1,11 +1,14 @@
 import Layout from '../../components/layout'
 import { getAllPostIds, getPostData } from '../../lib/posts'
+import Head from 'next/head'
+import Date from '../../components/date'
+import utilStyles from '../../styles/utils.module.css'
 
+// path가 먼저, props가 그 다음 실행됨
 export async function getStaticProps({ params }) {
     // Add the "await" keyword like this:
     const postData = await getPostData(params.id)
     console.log('getStaticProps');
-    console.log(postData);
     return {
         props: {
             postData
@@ -15,7 +18,7 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
     const paths = getAllPostIds()
-    console.log('getStaticProps');
+    console.log('getStaticPaths');
     return {
         paths,
         fallback: false
@@ -25,11 +28,14 @@ export async function getStaticPaths() {
 export default function Post({ postData }) {
     return (
         <Layout>
+            <Head>
+                <title>{postData.title}</title>
+            </Head>
             {postData.title}
             <br />
             {postData.id}
             <br />
-            {postData.date}
+            <Date dateString={postData.date} />
             <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }}></div>
         </Layout>
     )
