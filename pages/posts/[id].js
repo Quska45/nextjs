@@ -19,8 +19,12 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
     const paths = getAllPostIds()
     console.log('getStaticPaths');
+    console.log(paths);
     return {
         paths,
+        /*
+        * 만약 fallback이 false라면, getStaticPaths에 의해 리턴되지 않은 모든 경로는 404 페이지로 이동합니다.
+        * */
         fallback: false
     }
 }
