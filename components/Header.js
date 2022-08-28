@@ -1,19 +1,20 @@
 import style from '../styles/header.module.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCoffee, faBars } from '@fortawesome/free-solid-svg-icons'
-import { faTwitter, faFacebook } from '@fortawesome/free-brands-svg-icons'
 import classNames from 'classnames'
 import { useState } from 'react'
+import HeaderMenus from './HeaderMenus'
+import HeaderIcon from './HeaderIcon'
 
 export default function Header(){
 
     const [ headerMenuActive, setHeaderMenuActive ] = useState( false );
-    const [ headerIconsActive, setHeaderIconsActive ] = useState( false );
+    const [ headerIconActive, setHeaderIconActive ] = useState( false );
     const headerMenuToggle = () => {
         setHeaderMenuActive( (prev) => !prev );
     };
-    const headerIconsToggle = () => {
-        setHeaderIconsActive( (prev) => !prev );
+    const headerIconToggle = () => {
+        setHeaderIconActive( (prev) => !prev );
     };
 
     let complexCss = {
@@ -26,10 +27,10 @@ export default function Header(){
             [ style.header_item ] : true,
             [ style.active ] : headerMenuActive
         }),
-        'header_icons': classNames({
-            [ style.header_icons ] : true,
+        'header_icon': classNames({
+            [ style.header_icon ] : true,
             [ style.header_item ] : true,
-            [ style.active ] : headerIconsActive
+            [ style.active ] : headerIconActive
         }),
         'header_bars': classNames({
             [ style.header_bars ] : true,
@@ -44,22 +45,15 @@ export default function Header(){
                 Coding 블로그
             </div>
 
-            <ul className={ complexCss.header_menu }>
-                <li>메뉴1</li>
-                <li>메뉴2</li>
-                <li>메뉴3</li>
-            </ul>
+            <HeaderMenus css={ complexCss.header_menu } />
 
-            <ul className={ complexCss.header_icons }>
-                <li><FontAwesomeIcon icon={ faTwitter } /></li>
-                <li><FontAwesomeIcon icon={ faFacebook }/></li>
-            </ul>
+            <HeaderIcon css={ complexCss.header_icon }></HeaderIcon>
 
             <div
                 className={ complexCss.header_bars }
                 onClick={() => {
                     headerMenuToggle()
-                    headerIconsToggle()
+                    headerIconToggle()
                 }}
             >
                 <FontAwesomeIcon icon={ faBars }></FontAwesomeIcon>

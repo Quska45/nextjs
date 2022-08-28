@@ -31,7 +31,7 @@
     padding-right: 5px;
 }
 
-.header_icons {
+.header_icon {
     display: flex;
     list-style: none;
     padding-right: 5px;
@@ -58,11 +58,11 @@
     }
 
     .header_menu.active,
-    .header_icons.active {
+    .header_icon.active {
         display: flex;
     }
 
-    .header_icons {
+    .header_icon {
         display: none;
         justify-content: center;
         width: 100%;
