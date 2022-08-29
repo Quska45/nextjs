@@ -1,10 +1,18 @@
 export default function HeaderMenus( props ) {
 
+    function makeMenu(){
+        const menus = props.menus.reduce(( acc, cur ) => {
+            acc.push( <li key={ cur.id }>{ cur.name }</li> )
+
+            return acc;
+        }, [])
+
+        return menus;
+    }
+
     return (
         <ul className={ props.css }>
-            <li>메뉴1</li>
-            <li>메뉴2</li>
-            <li>메뉴3</li>
+            { makeMenu() }
         </ul>
     )
 }

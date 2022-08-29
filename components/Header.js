@@ -6,20 +6,6 @@ import { useState } from 'react'
 import HeaderMenus from './HeaderMenus'
 import HeaderIcon from './HeaderIcon'
 
-// path가 먼저, props가 그 다음 실행됨
-export async function getStaticProps({ params }) {
-    console.log('asldkjhgkjsdhg');
-    console.log( params );
-    // Add the "await" keyword like this:
-    // const postData = await getPostData(params.id)
-    // console.log('getStaticProps');
-    return {
-        props: {
-            // postData
-        }
-    }
-}
-
 export default function Header( props ){
 
     const [ headerMenuActive, setHeaderMenuActive ] = useState( false );
@@ -60,7 +46,10 @@ export default function Header( props ){
                 Coding 블로그
             </div>
 
-            <HeaderMenus css={ complexCss.header_menu } />
+            <HeaderMenus
+                css = { complexCss.header_menu }
+                menus = { props.menus }
+            />
 
             <HeaderIcon css={ complexCss.header_icon }></HeaderIcon>
 
@@ -77,4 +66,5 @@ export default function Header( props ){
             </div>
         </header>
     )
+
 }
