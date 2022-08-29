@@ -6,7 +6,21 @@ import { useState } from 'react'
 import HeaderMenus from './HeaderMenus'
 import HeaderIcon from './HeaderIcon'
 
-export default function Header(){
+// path가 먼저, props가 그 다음 실행됨
+export async function getStaticProps({ params }) {
+    console.log('asldkjhgkjsdhg');
+    console.log( params );
+    // Add the "await" keyword like this:
+    // const postData = await getPostData(params.id)
+    // console.log('getStaticProps');
+    return {
+        props: {
+            // postData
+        }
+    }
+}
+
+export default function Header( props ){
 
     const [ headerMenuActive, setHeaderMenuActive ] = useState( false );
     const [ headerIconActive, setHeaderIconActive ] = useState( false );
@@ -16,6 +30,7 @@ export default function Header(){
     const headerIconToggle = () => {
         setHeaderIconActive( (prev) => !prev );
     };
+    const [ menus, setMenus ] = useState( '' );
 
     let complexCss = {
         'header_logo': classNames({
@@ -56,7 +71,9 @@ export default function Header(){
                     headerIconToggle()
                 }}
             >
-                <FontAwesomeIcon icon={ faBars }></FontAwesomeIcon>
+
+            <FontAwesomeIcon icon={ faBars }></FontAwesomeIcon>
+
             </div>
         </header>
     )
