@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 
-import Account from "./Account";
+import ComponentTestSample from "./ComponentTestSample";
 import { render } from "@testing-library/react"
 
 it("matches snapshot", () => {
-    const utils = render(<Account name="호박너구리" mbti="ESFJ"></Account>)
+    const utils = render(<ComponentTestSample name="호박너구리" mbti="ESFJ"></ComponentTestSample>)
     expect(utils.container).toMatchSnapshot()
 })

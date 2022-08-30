@@ -1,4 +1,4 @@
-const Account = (props) => {
+const ComponentTestSample = (props) => {
     return (
         <div>
             <h2>{props.name}</h2>
@@ -7,4 +7,4 @@ const Account = (props) => {
     )
 }
 
-export default Account;
+export default ComponentTestSample;
