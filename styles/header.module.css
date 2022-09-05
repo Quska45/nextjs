@@ -13,12 +13,10 @@
     height: 75px;
 }
 
-.header_item{
-}
-
 .header_logo {
     font-size: 24px;
     padding-left: 5px;
+    cursor: pointer;
 }
 
 .header_menu {
@@ -29,6 +27,7 @@
 
 .header_menu li {
     padding-right: 5px;
+    cursor: pointer;
 }
 
 .header_icon {
@@ -36,6 +35,11 @@
     list-style: none;
     padding-right: 5px;
     padding-left: 0px;
+    width: 100px;
+    justify-content: space-around;
+}
+.header_icon li {
+    cursor: pointer;
 }
 
 .header_bars {
@@ -44,6 +48,7 @@
     padding-right: 5px;
     right: 5px;
     display: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 768px){

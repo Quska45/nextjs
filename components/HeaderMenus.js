@@ -1,8 +1,14 @@
+import Link from 'next/link'
+
 export default function HeaderMenus( props ) {
 
     function makeMenu(){
         const menus = props.menus.reduce(( acc, cur ) => {
-            acc.push( <li key={ cur.id }>{ cur.name }</li> )
+            acc.push(
+                <Link key={ cur.id } href={"/" + cur.id}>
+                    <li>{ cur.name }</li>
+                </Link>
+            )
 
             return acc;
         }, [])
