@@ -6,7 +6,7 @@ export default function HeaderMenus( props ) {
         const menus = props.menus.reduce(( acc, cur ) => {
             acc.push(
                 <Link key={ cur.id } href={"/" + cur.id}>
-                    <li>{ cur.name }</li>
+                    <a>{ cur.name }</a>
                 </Link>
             )
 

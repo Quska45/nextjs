@@ -1,5 +1,5 @@
 
-export default function menu1() {
+export default function expenses() {
     return (
         <>
         </>
